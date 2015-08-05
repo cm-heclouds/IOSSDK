@@ -4,7 +4,6 @@
 
 ## 屏幕截图 ##
 
-![screenshot1](/img/1.png)
 ![screenshot2](/img/2.png)
 ![screenshot3](/img/3.png)
 
@@ -20,9 +19,10 @@ OneNetApi的网络请求框架使用的是[**ASIHTTPRequest**]，如果要以源
 
 ### 示例 ###
 
-所有的请求都是通过`SDK.h` 里面的方法完成，返回结果以JSON形式返回给用户，以获取设备列表为例
+所有的请求都是通过`SDK.h` 里面的方法完成，返回结果以JSON形式返回给用户，以获取添加设备为例
 
     // 所有请求中用到的RequestKey都是调用login接口返回的
-    NSString *requestKey = @"xxxxxxxxxxx-xxxxxxxxxxxxxx-xxxxxxxxxxxx";
-    
-   NSDictionary *dict=[[SDK share] getMoreDeviceRequestKey:requestKey andPage:1 andPerPage:5 andRequestParam:nil];
+  
+   -RequestParam参数形如 @"{\"title\":\"test\"}"
+   NSDictionary *dict=[[SDK share] getMoreDeviceRequestKey:@"<填入你的APIKEY>" andRequestParam:@"<填入你自己的参数>"];
+   
