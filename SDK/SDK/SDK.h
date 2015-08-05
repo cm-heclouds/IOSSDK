@@ -66,6 +66,10 @@
  *  @return 请求结果
  */
 -(NSDictionary *)deleteDeviceRequsetKey:(NSString *)apikey andDeviceId:(NSString *)deviceId;
+#pragma mark  设备 -----------end
+
+#pragma mark 数据流 -------------start
+
 /**
  *  为设备增加一条数据流，用于存储和展现数据。(数据上报需要上报到具体的一条数据流）
  *
@@ -75,9 +79,7 @@
  *
  *  @return 请求结果
  */
-#pragma mark  设备 -----------end
 
-#pragma mark 数据流 -------------start
 -(NSDictionary *)addDataPointRequestKey:(NSString *)apikey andDeviceId:(NSString *)deviceId andParam:(NSString *)param;
 
 /**
@@ -158,10 +160,36 @@
 
 
 #pragma mark  触发器   -----------start
+/**
+ *  添加触发器
+ *
+ *  @param apikey   登录成功时,获取的api_key
+ *  @param deviceId  设备ID
+ *  @param streamId  数据流ID
+ *  @param param    请求参数
+ *
+ *  @return 请求结果
+ */
 -(NSDictionary *)addTriggerRequestKey:(NSString *)apikey andDeviceId:(NSString *)deviceId andDataStreamId:(NSString *)streamId andParam:(NSString *)param;
 
+/**
+ *  编辑触发器
+ *
+ *  @param apikey   登录成功时,获取的api_key
+ *  @param triggerId  触发器ID
+ *  @param param    请求参数
+ *
+ *  @return 请求结果
+ */
 -(NSDictionary *)editTriggerRequestKey:(NSString *)apikey andTriggerId:(NSString *)triggerId andParam:(NSString *)param;
 
+/**
+ *  删除触发器
+ *
+ *  @param apikey   登录成功时,获取的api_key
+ *  @param triggerId  触发器ID
+ *  @return 请求结果
+ */
 -(NSDictionary *)deleteTriggerRequestKey:(NSString *)apikey andTriggerId:(NSString *)triggerId;
 
 #pragma mark 触发器 ----------end

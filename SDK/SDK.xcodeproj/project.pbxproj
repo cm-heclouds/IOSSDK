@@ -72,6 +72,7 @@
 		DD7393D21B706AE600F40B8D /* SDKTestResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKTestResultViewController.m; sourceTree = "<group>"; };
 		DD7393D41B706DC300F40B8D /* NSString+HXAddtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HXAddtions.h"; sourceTree = "<group>"; };
 		DD7393D51B706DC300F40B8D /* NSString+HXAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HXAddtions.m"; sourceTree = "<group>"; };
+		DD7393D71B7078AA00F40B8D /* SDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDK.h; sourceTree = "<group>"; };
 		DDAB2E8D1B6F217C0048EE17 /* SDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAB2E911B6F217C0048EE17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDAB2E921B6F217C0048EE17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -85,7 +86,6 @@
 		DDAB2EA61B6F217C0048EE17 /* SDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAB2EAB1B6F217C0048EE17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDAB2EAC1B6F217C0048EE17 /* SDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDKTests.m; sourceTree = "<group>"; };
-		DDAB2EB61B6F21BA0048EE17 /* SDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDK.h; sourceTree = "<group>"; };
 		DDAB2EB71B6F21BA0048EE17 /* SDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDK.m; sourceTree = "<group>"; };
 		DDAB2EB91B6F21E30048EE17 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		DDAB2EBB1B6F21EB0048EE17 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -224,7 +224,7 @@
 				DDAB2E9D1B6F217C0048EE17 /* Images.xcassets */,
 				DDAB2E9F1B6F217C0048EE17 /* LaunchScreen.xib */,
 				DDAB2E901B6F217C0048EE17 /* Supporting Files */,
-				DDAB2EB61B6F21BA0048EE17 /* SDK.h */,
+				DD7393D71B7078AA00F40B8D /* SDK.h */,
 				DDAB2EB71B6F21BA0048EE17 /* SDK.m */,
 				DD7393CE1B705E3C00F40B8D /* SDKTestViewController.h */,
 				DD7393CF1B705E3C00F40B8D /* SDKTestViewController.m */,

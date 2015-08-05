@@ -39,13 +39,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="登录" id="lGA-Tc-ILg"/>
-                    <connections>
-                        <segue destination="REd-ap-hdn" kind="push" identifier="sdktest" id="61X-cv-dvc"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="191" y="200"/>
+            <point key="canvasLocation" x="196" y="623"/>
         </scene>
         <!--Test Result View Controller-->
         <scene sceneID="cCS-tX-JGf">
@@ -71,14 +68,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="PP2-Ho-Aym"/>
+                        <segue destination="REd-ap-hdn" kind="relationship" relationship="rootViewController" id="Wwq-1E-RVN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0U-rb-wXU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-279" y="289"/>
+            <point key="canvasLocation" x="-286" y="97"/>
         </scene>
-        <!--Test View Controller-->
+        <!--SDK-->
         <scene sceneID="Zus-Q6-Xqh">
             <objects>
                 <viewController id="REd-ap-hdn" customClass="SDKTestViewController" sceneMemberID="viewController">
@@ -309,14 +306,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wB4-pA-9Bv"/>
+                    <navigationItem key="navigationItem" title="SDK" id="wB4-pA-9Bv"/>
                     <connections>
                         <segue destination="v0C-nC-aFh" kind="push" identifier="sdkresult" id="D2F-qj-rMT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ya1-vz-vHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="587" y="143"/>
+            <point key="canvasLocation" x="97" y="97"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -10,10 +10,14 @@
 #import "SDK.h"
 #import "SDKTestResultViewController.h"
 
+/**
+ *  1所有方法需要RequestKey的参数都是 登录成功时，从登录结果返回获取的 APIKEY参数
+ *  2所有需要传递参数的RequestParam 形式都如同 @"{\"title\":\"test\"}"
+ *  3所有需要DeviceID的参数的都是当前设备的设备ID
+ */
+
 @interface SDKTestViewController (){
-    NSString *requestKey;
     NSDictionary *dict;
-    NSString *deviceID;
 }
 @property(nonatomic,strong)NSDictionary *userLoginMsg;
 
@@ -24,41 +28,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-     userLoginMsg=[[NSDictionary alloc]initWithContentsOfFile:[SDK saveSandbox:@"userLoginMsg"]];
-    requestKey=[[userLoginMsg valueForKey:@"data"] valueForKey:@"api_key"];
+//     userLoginMsg=[[NSDictionary alloc]initWithContentsOfFile:[SDK saveSandbox:@"userLoginMsg"]];
+//    requestKey=[[userLoginMsg valueForKey:@"data"] valueForKey:@"api_key"];
 }
 
-#pragma mark  设备
+#pragma mark  设备相关方法-------------
 -(IBAction)deviceAction:(UIButton *)btn{
     
     switch (btn.tag) {
         case 1:{//添加设备
-            dict=[[SDK share]addDeviceRequestKey:requestKey andRequestParam:@"{\"title\":\"test\"}"];
-            deviceID=dict[@"data"][@"device_id"];
+            dict=[[SDK share]addDeviceRequestKey:@"<填入登录时获取的APIKey>" andRequestParam:@"<填入你自己的参数>"];
+            
         }
             break;
         case 2:{//获取设备列表
             
-            dict=[[SDK share] getMoreDeviceRequestKey:requestKey andPage:1 andPerPage:5 andRequestParam:nil];
+            dict=[[SDK share] getMoreDeviceRequestKey:@"<填入登录时获取的APIKey>" andPage:1 andPerPage:5 andRequestParam:nil];
         }
             break;
         case 3:{//获取单个设备
-            if (deviceID.length==0) {
-               UIAlertView *alert =  [[UIAlertView alloc]initWithTitle:nil message:@"请添加设备" delegate:nil
-                                cancelButtonTitle:@"确定" otherButtonTitles:nil];
-                [alert show];
-                return;
-            }
-            dict=[[SDK share] getSingleDeviceRequestKey:requestKey andDeviceId:deviceID];
+           
+            dict=[[SDK share] getSingleDeviceRequestKey:@"<填入登录时获取的APIKey>" andDeviceId:@"<当前设备对应的设备ID>"];
         }
             break;
         case 4:{//编辑设备
-            dict=[[SDK share]editDeviceRequestKey:requestKey andDeviceId:deviceID andRequestParam:@"{\"title\":\"test\"}"];
+            dict=[[SDK share]editDeviceRequestKey:@"<填入登录时获取的APIKey>" andDeviceId:@"<当前设备对应的设备ID>" andRequestParam:@"{\"title\":\"test\"}"];
         }
             break;
         case 5:{//删除设备
-            dict=[[SDK share]deleteDeviceRequsetKey:requestKey andDeviceId:deviceID];
-            deviceID=@"";
+            dict=[[SDK share]deleteDeviceRequsetKey:@"<填入登录时获取的APIKey>" andDeviceId:@"<当前设备对应的设备ID>"];
+          
         }
             break;
         default:
@@ -69,32 +68,28 @@
     
 }
 
-#pragma mark 数据流
+#pragma mark 数据流相关方法-----------
 -(IBAction)datastreamAction:(UIButton *)btn{
-    if (deviceID.length==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"请先添加设备" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
-        return;
-    }
+  
     switch (btn.tag) {
         case 1:{//添加数据流
-            dict=[[SDK share]addDataPointRequestKey:requestKey andDeviceId:deviceID andParam:@"{}"];
+            dict=[[SDK share]addDataPointRequestKey:@"<填入登录时获取的APIKey>" andDeviceId:@"<当前设备对应的设备ID>" andParam:@"{}"];
         }
             break;
         case 2:{//读取数据流
-            dict=[[SDK share]readSingleDataPointRequestKey:requestKey andDeviceId:deviceID andDataStreamId:@""];
+            dict=[[SDK share]readSingleDataPointRequestKey:@"<填入登录时获取的APIKey>" andDeviceId:@"<当前设备对应的设备ID>" andDataStreamId:@""];
         }
             break;
         case 3:{//读取数量列表
-            dict=[[SDK share] readMoreDataPointRequestKey:requestKey andDeviceId:deviceID andParam:@"{}"];
+            dict=[[SDK share] readMoreDataPointRequestKey:@"<填入登录时获取的APIKey>" andDeviceId:@"<当前设备对应的设备ID>" andParam:@"{}"];
         }
             break;
         case 4:{//编辑数据流
-            dict=[[SDK share] editDataPointRequestKey:requestKey andDeviceId:deviceID andDataStreamId:@"" andParam:@"{}"];
+            dict=[[SDK share] editDataPointRequestKey:@"<填入登录时获取的APIKey>" andDeviceId:@"<当前设备对应的设备ID>" andDataStreamId:@"" andParam:@"{}"];
         }
             break;
         case 5:{//删除数据流
-            dict=[[SDK share]deleteDataPointRequestKey:requestKey andDeviceId:deviceID andDataStreamId:@""];
+            dict=[[SDK share]deleteDataPointRequestKey:@"<填入登录时获取的APIKey>" andDeviceId:@"<当前设备对应的设备ID>" andDataStreamId:@""];
         }
             break;
         default:
@@ -103,25 +98,21 @@
      [self performSegueWithIdentifier:@"sdkresult" sender:self];
 }
 
-#pragma mark 触发器
+#pragma mark 触发器相关方法 ------------
 -(IBAction)triggerAction:(UIButton *)btn{
-    if (deviceID.length==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"请先添加设备" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
-        return;
-    }
+   
 
     switch (btn.tag) {
         case 1:{//新增触发器
-            dict=[[SDK share] addTriggerRequestKey:requestKey andDeviceId:deviceID andDataStreamId:@"" andParam:@"{}"];
+            dict=[[SDK share] addTriggerRequestKey:@"<填入登录时获取的APIKey>" andDeviceId:@"<当前设备对应的设备ID>" andDataStreamId:@"<当前数据流ID>" andParam:@"{}"];
         }
             break;
         case 2:{//编辑触发器
-            dict=[[SDK share]editTriggerRequestKey:requestKey andTriggerId:deviceID andParam:@"{}"];
+            dict=[[SDK share]editTriggerRequestKey:@"<填入登录时获取的APIKey>" andTriggerId:@"<当前触发器ID>" andParam:@"{}"];
         }
             break;
         case 3:{//删除触发器
-            dict=[[SDK share]deleteTriggerRequestKey:requestKey andTriggerId:@""];
+            dict=[[SDK share]deleteTriggerRequestKey:@"<填入登录时获取的APIKey>" andTriggerId:@"<要删除触发器的ID>"];
         }
             break;
         
@@ -131,19 +122,19 @@
      [self performSegueWithIdentifier:@"sdkresult" sender:self];
 }
 
-#pragma mark apikey
+#pragma mark apikey相关方法--------
 -(IBAction)apikeyAction:(UIButton *)btn{
     switch (btn.tag) {
         case 1:{//新增APIKEY
-            dict=[[SDK share]addAPIKeyRequestKey:requestKey andParam:@"{}"];
+            dict=[[SDK share]addAPIKeyRequestKey:@"<填入登录时获取的APIKey>" andParam:@"{}"];
         }
             break;
         case 2:{//编辑APIKEY
-            dict=[[SDK share]editAPIKeyRequestkey:requestKey andAPIKeyId:@"" andParam:@"{}"];
+            dict=[[SDK share]editAPIKeyRequestkey:@"<填入登录时获取的APIKey>" andAPIKeyId:@"<当前APIKey ID>" andParam:@"{}"];
         }
             break;
         case 3:{//读取APIKEY
-            dict=[[SDK share]readAPIKeyRequestKey:requestKey andParam:@"{}"];
+            dict=[[SDK share]readAPIKeyRequestKey:@"<填入登录时获取的APIKey>" andParam:@"{}"];
         }
             break;
             
