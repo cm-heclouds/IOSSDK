@@ -144,6 +144,28 @@
      [self performSegueWithIdentifier:@"sdkresult" sender:self];
 }
 
+#pragma mark 二进制相关---------
+-(IBAction)Bindata:(UIButton *)btn{
+    switch (btn.tag) {
+        case 1:{//添加二进制
+            
+            dict=[[SDK share] uploadBindataRequestKey:@"<填入登录时获取的APIKey>" andBindata:[NSData data] andPrama:@"{}"];
+        }
+            break;
+        case 2:{//读取二进制
+            dict=[[SDK share]readBindataRequestKey:@"<填入登录时获取的APIKey>" andBindataIndex:@"<二进制索引>"];
+        }
+            break;
+        case 3:{//删除二进制
+            dict=[[SDK share]deleteBindataRequestKey:@"<填入登录时获取的APIKey>" andBindataIndex:@"<二进制索引>"];
+        }
+            break;
+        default:
+            break;
+    }
+    [self performSegueWithIdentifier:@"sdkresult" sender:self];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

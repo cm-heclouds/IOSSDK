@@ -259,6 +259,43 @@ static SDK * static_self=nil;
     return [self parserRequestData:request.responseString];
 }
 
+#pragma mark  上传二进制
+-(NSDictionary *)uploadBindataRequestKey:(NSString *)apiKey andBindata:(NSData *)data andPrama:(NSString *)param{
+    ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/bindata",baseURL]]];
+    [request setRequestMethod:@"POST"];
+    [request addRequestHeader:@"api-key" value:apiKey];
+    [request setPostBody:[[NSMutableData alloc]initWithData:data]];
+    [request startSynchronous];
+    if (request.responseStatusCode!=200) {
+        return nil;
+    }
+    return [self parserRequestData:request.responseString];
+}
+
+#pragma mark  读取二进制
+-(NSDictionary *)readBindataRequestKey:(NSString *)apiKey andBindataIndex:(NSString *)index{
+    ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/bindata/%@",baseURL,index]]];
+    [request setRequestMethod:@"GET"];
+    [request addRequestHeader:@"api-key" value:apiKey];
+    [request startSynchronous];
+    if (request.responseStatusCode!=200) {
+        return nil;
+    }
+    return [self parserRequestData:request.responseString];
+}
+
+#pragma mark 删除二进制
+-(NSDictionary *)deleteBindataRequestKey:(NSString *)apiKey andBindataIndex:(NSString *)index{
+    ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/bindata/%@",baseURL,index]]];
+    [request setRequestMethod:@"DELETE"];
+    [request addRequestHeader:@"api-key" value:apiKey];
+    [request startSynchronous];
+    if (request.responseStatusCode!=200) {
+        return nil;
+    }
+    return [self parserRequestData:request.responseString];
+}
+
 #pragma mark 新增触发器
 -(NSDictionary *)addTriggerRequestKey:(NSString *)apikey andDeviceId:(NSString *)deviceId andDataStreamId:(NSString *)streamId andParam:(NSString *)param{
     ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/devices/%@/datastreams/%@/triggers",baseURL,deviceId,streamId]]];

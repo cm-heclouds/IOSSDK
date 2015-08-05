@@ -158,6 +158,32 @@
 
 #pragma mark  数据点 -----------------end
 
+#pragma mark 二进制数据 -------start
+/**
+ *  上传二进制
+ *
+ *  @param apiKey 登录成功时,获取的api_key
+ *  @param data   二进制
+ *  @param param  请求参数 可选
+ *
+ *  @return 请求结果
+ */
+-(NSDictionary *)uploadBindataRequestKey:(NSString *)apiKey andBindata:(NSData *)data andPrama:(NSString *)param;
+
+/**
+ *  读取二进制数据的内容。若查询没有该数据返回HTTP 404,并在返回内容中指定
+ *
+ *  @param apiKey 登录成功时,获取的api_key
+ *  @param index  该数据在设备云中的索引
+ *
+ *  @return 请求结果
+ */
+-(NSDictionary *)readBindataRequestKey:(NSString *)apiKey andBindataIndex:(NSString *)index;
+-(NSDictionary *)deleteBindataRequestKey:(NSString *)apiKey andBindataIndex:(NSString *)index;
+
+#pragma mark 二进制数据 ------end
+
+
 
 #pragma mark  触发器   -----------start
 /**
