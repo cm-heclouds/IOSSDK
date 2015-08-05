@@ -24,5 +24,5 @@ OneNetApi的网络请求框架使用的是[**ASIHTTPRequest**]，如果要以源
     // 所有请求中用到的RequestKey都是调用login接口返回的
   
    -RequestParam参数形如 @"{\"title\":\"test\"}"
-   NSDictionary *dict=[[SDK share] getMoreDeviceRequestKey:@"<填入你的APIKEY>" andRequestParam:@"<填入你自己的参数>"];
+     NSDictionary *dict=[[SDK share] getMoreDeviceRequestKey:@"<填入你的APIKEY>" andRequestParam:@"<填入你自己的参数>"];
    
