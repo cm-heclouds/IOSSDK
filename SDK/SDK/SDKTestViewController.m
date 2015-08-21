@@ -27,7 +27,10 @@
 @synthesize userLoginMsg;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+       
+
+//     Do any additional setup after loading the view.
 //     userLoginMsg=[[NSDictionary alloc]initWithContentsOfFile:[SDK saveSandbox:@"userLoginMsg"]];
 //    requestKey=[[userLoginMsg valueForKey:@"data"] valueForKey:@"api_key"];
 }

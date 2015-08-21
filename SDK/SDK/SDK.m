@@ -397,7 +397,19 @@ static SDK * static_self=nil;
 
 #pragma mark 发送数据到EDP设备
 -(NSDictionary *)sentDataReqestKey:(NSString *)apikey andDeviceId:(NSString *)deviceId andParam:(NSString *)param{
-    ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/cmds/%@",baseURL,deviceId]]];
+    if ([deviceId stringByReplacingOccurrencesOfString:@" " withString:@""].length==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"设备号不能为空" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
+        return nil;
+    }
+    if ([[NSMutableData alloc]initWithData:[param dataUsingEncoding:NSUTF8StringEncoding]].length/1024>64) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"数据文件不能超过64K" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
+        return nil;
+    }
+    
+    
+    ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/cmds/?device_id=%@",baseURL,deviceId]]];
     [request setRequestMethod:@"POST"];
     [request addRequestHeader:@"api-key" value:apikey];
     [request setPostBody:[[NSMutableData alloc]initWithData:[param dataUsingEncoding:NSUTF8StringEncoding]]];
