@@ -30,7 +30,8 @@
     
 
     
-  
+    NSDictionary *result=[[SDK share] sentDataReqestKey:@"b77a30acf8368345c72c55172fbb352f" andDeviceId:@"143217" andParam:@"123"];
+    NSLog(@"result==%@",result);
 
 //     Do any additional setup after loading the view.
 //     userLoginMsg=[[NSDictionary alloc]initWithContentsOfFile:[SDK saveSandbox:@"userLoginMsg"]];
