@@ -28,7 +28,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-       
+
+    
+  
 
 //     Do any additional setup after loading the view.
 //     userLoginMsg=[[NSDictionary alloc]initWithContentsOfFile:[SDK saveSandbox:@"userLoginMsg"]];
@@ -40,7 +42,8 @@
     
     switch (btn.tag) {
         case 1:{//添加设备
-            dict=[[SDK share]addDeviceRequestKey:@"<填入登录时获取的APIKey>" andRequestParam:@"<填入你自己的参数>"];
+            dict=[[SDK share]addDeviceRequestKey:@"c860c74d093db0ef739fecdbc81d2dab" andRequestParam:@"{\"title\":\"test001\"}"];
+            NSLog(@"dict==%@",dict);
             
         }
             break;
@@ -76,11 +79,13 @@
   
     switch (btn.tag) {
         case 1:{//添加数据流
-            dict=[[SDK share]addDataPointRequestKey:@"<填入登录时获取的APIKey>" andDeviceId:@"<当前设备对应的设备ID>" andParam:@"{}"];
+            dict=[[SDK share]addDataPointRequestKey:@"c860c74d093db0ef739fecdbc81d2dab" andDeviceId:@"143217" andParam:@"{\"id\":\"23\"}"];
+            NSLog(@"dict==%@",dict);
         }
             break;
         case 2:{//读取数据流
-            dict=[[SDK share]readSingleDataPointRequestKey:@"<填入登录时获取的APIKey>" andDeviceId:@"<当前设备对应的设备ID>" andDataStreamId:@""];
+            dict=[[SDK share]readSingleDataPointRequestKey:@"c860c74d093db0ef739fecdbc81d2dab" andDeviceId:@"143217" andDataStreamId:@""];
+            NSLog(@"dict==%@",dict);
         }
             break;
         case 3:{//读取数量列表

@@ -409,7 +409,8 @@ static SDK * static_self=nil;
     }
     
     
-    ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/cmds/?device_id=%@",baseURL,deviceId]]];
+    ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/cmds?device_id=%@",baseURL,deviceId]]];
+
     [request setRequestMethod:@"POST"];
     [request addRequestHeader:@"api-key" value:apikey];
     [request setPostBody:[[NSMutableData alloc]initWithData:[param dataUsingEncoding:NSUTF8StringEncoding]]];
