@@ -10,8 +10,7 @@
 
 @interface SDK : NSObject
 +(id)share;
-//用户登录
--(NSDictionary *)userLogin:(NSString *)userName andPWD:(NSString *)pwd;
+
 
 #pragma mark 设备 -----------start
 /**
@@ -210,6 +209,25 @@
 -(NSDictionary *)editTriggerRequestKey:(NSString *)apikey andTriggerId:(NSString *)triggerId andParam:(NSString *)param;
 
 /**
+ *  读取单个触发器数据，根据GET中包含dev_id参数查看该设备下APIKey信息
+ *
+ *  @param apikey   登录成功时,获取的api_key
+ *  @param triggerId  触发器ID
+ *
+ *  @return 请求结果
+ */
+-(NSDictionary *)readTriggerRequestKey:(NSString *)apiKey andTriggerId:(NSString *)triggerId;
+
+/**
+ *  批量读取触发器
+ *
+ *  @param apikey   登录成功时,获取的api_key
+ *
+ *  @return 请求结果
+ */
+-(NSDictionary *)readAllTriggerRequestKey:(NSString *)apiKey;
+
+/**
  *  删除触发器
  *
  *  @param apikey   登录成功时,获取的api_key
@@ -266,9 +284,9 @@
 #pragma mark  APIKey -----------end
 
 
-#pragma mark 其他
+#pragma mark 命令执行 ------start
 /**
- *  <#Description#>
+ *  发送命令
  *
  *  @param apikey   通过RestFul协议接口，将数据发送到使用EDP协议的设备
  *  @param deviceId
@@ -278,8 +296,51 @@
  */
 -(NSDictionary *)sentDataReqestKey:(NSString *)apikey andDeviceId:(NSString *)deviceId andParam:(NSString *)param;
 
+/**
+ *  用于查看命令发送状态。
+ *
+ *  @param apikey   通过RestFul协议接口，将数据发送到使用EDP协议的设备
+ *  @param cmdId 发送命令ID
+ *
+ *  @return 请求结果
+ */
+-(NSDictionary *)queryStatueRequestKey:(NSString *)apikey andCmdId:(NSString *)cmdId;
+
+/**
+ *  获取响应
+ *
+ *  @param apikey   通过RestFul协议接口，将数据发送到使用EDP协议的设备
+ *  @param cmdId 发送命令ID
+ *  @param param 用户自定义Json或二进制数据（小于64K） 
+ *  @return 请求结果
+ */
+-(NSDictionary *)getRespRequestKey:(NSString *)apiKey andCmdId:(NSString *)cmdId andParam:(NSString *)param;
+
+#pragma mark 命令执行 -------end
+
+
+#pragma mark  其他-------start
+
+/**
+ *  RestAPI 日志查询
+ *
+ *  @param apikey
+ *  @param deviceId 设备ID
+ *  @return 请求结果
+ */
+-(NSDictionary *)queryLogRequestKey:(NSString *)apikey andDeviceId:(NSString *)deviceId;
+
+/**
+ *  历史数据查询
+ *
+ *  @param apikey 注：必须是用户master-key
+ *  @param param 请求参数（start,device_id,datastream_id,end,limit,cursor,duration） 可选
+ *  @return 请求结果
+ */
 -(NSDictionary *)queryDataRequestKey:(NSString *)apikey andParam:(NSString *)param;
 
+
+#pragma mark 其他 -------end
 
 //保存信息到沙箱目录
 +(NSString *)saveSandbox:(NSString *)sandPath;

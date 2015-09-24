@@ -13,7 +13,7 @@
 #import "ASIDownloadCache.h"
 #import "SBJson.h"
 
-#define baseURL @"http://appapi.heclouds.com"
+#define baseURL @"http://api.heclouds.com"
 
 
 @implementation SDK
@@ -25,23 +25,6 @@ static SDK * static_self=nil;
     return static_self;
 }
 
-#pragma mark 用户登录
--(NSDictionary *)userLogin:(NSString *)userName andPWD:(NSString *)pwd{
-    
-    NSMutableString *param=[[NSMutableString alloc]init];
-    [param appendString:[NSString stringWithFormat:@"{\"username\":\"%@\",\"password\":\"%@\"}",userName,pwd]];
-    ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/login",baseURL]]];
-    [request setRequestMethod:@"POST"];
-    [request setPostBody:[[NSMutableData alloc]initWithData:[param dataUsingEncoding:NSUTF8StringEncoding]]];
-    [request setStringEncoding:NSUTF8StringEncoding];
-    [request buildPostBody];
-    [request setDownloadCache:[ASIDownloadCache sharedCache]];
-    [request startSynchronous];
-    if (request.responseStatusCode!=200) {
-        return nil;
-    }
-    return [self parserRequestData:request.responseString];
-}
 
 
 #pragma mark  添加设备
@@ -322,6 +305,30 @@ static SDK * static_self=nil;
     return [self parserRequestData:request.responseString];
 }
 
+#pragma mark 读取触发器
+-(NSDictionary *)readTriggerRequestKey:(NSString *)apiKey andTriggerId:(NSString *)triggerId{
+    ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/triggers/%@",baseURL,triggerId]]];
+    [request setRequestMethod:@"GET"];
+    [request addRequestHeader:@"api-key" value:apiKey];
+    [request startSynchronous];
+    if (request.responseStatusCode!=200) {
+        return nil;
+    }
+    return [self parserRequestData:request.responseString];
+}
+
+#pragma mark 批量读取触发器
+-(NSDictionary *)readAllTriggerRequestKey:(NSString *)apiKey{
+    ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/triggers",baseURL]]];
+    [request setRequestMethod:@"GET"];
+    [request addRequestHeader:@"api-key" value:apiKey];
+    [request startSynchronous];
+    if (request.responseStatusCode!=200) {
+        return nil;
+    }
+    return [self parserRequestData:request.responseString];
+}
+
 #pragma mark  删除触发器
 -(NSDictionary *)deleteTriggerRequestKey:(NSString *)apikey andTriggerId:(NSString *)triggerId{
     ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/triggers/%@",baseURL,triggerId]]];
@@ -421,6 +428,51 @@ static SDK * static_self=nil;
     return [self parserRequestData:request.responseString];
 }
 
+#pragma mark 查看状态
+-(NSDictionary *)queryStatueRequestKey:(NSString *)apikey andCmdId:(NSString *)cmdId{
+    ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/cmds/%@",baseURL,cmdId]]];
+    [request setRequestMethod:@"GET"];
+    [request addRequestHeader:@"api-key" value:apikey];
+    [request startSynchronous];
+    if (request.responseStatusCode!=200) {
+        return nil;
+    }
+    return [self parserRequestData:request.responseString];
+}
+
+#pragma mark 获取响应
+-(NSDictionary *)getRespRequestKey:(NSString *)apiKey andCmdId:(NSString *)cmdId andParam:(NSString *)param{
+    if ([[NSMutableData alloc]initWithData:[param dataUsingEncoding:NSUTF8StringEncoding]].length/1024>64) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"数据文件不能超过64K" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
+        return nil;
+    }
+    ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/cmds/%@/resp",baseURL,cmdId]]];
+    
+    [request setRequestMethod:@"GET"];
+    [request addRequestHeader:@"api-key" value:apiKey];
+    [request setPostBody:[[NSMutableData alloc]initWithData:[param dataUsingEncoding:NSUTF8StringEncoding]]];
+    [request startSynchronous];
+    if (request.responseStatusCode!=200) {
+        return nil;
+    }
+    return [self parserRequestData:request.responseString];
+}
+
+#pragma mark RestAPI 日志查询
+-(NSDictionary *)queryLogRequestKey:(NSString *)apikey andDeviceId:(NSString *)deviceId{
+    ASIFormDataRequest *request=[[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/logs/%@",baseURL,deviceId]]];
+    
+    [request setRequestMethod:@"GET"];
+    [request addRequestHeader:@"api-key" value:apikey];
+    
+    [request startSynchronous];
+    if (request.responseStatusCode!=200) {
+        return nil;
+    }
+    return [self parserRequestData:request.responseString];
+
+}
 
 #pragma mark 历史数据查询
 -(NSDictionary *)queryDataRequestKey:(NSString *)apikey andParam:(NSString *)param{

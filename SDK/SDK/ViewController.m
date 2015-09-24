@@ -24,20 +24,6 @@
 
 -(IBAction)loginAction:(UIButton *)btn{
    
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSDictionary *JSON=[[SDK share]userLogin:@"mzjmzj" andPWD:@"123456"];
-        [JSON writeToFile:[SDK saveSandbox:@"userLoginMsg"] atomically:YES];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [SVProgressHUD dismiss];
-            if ([[JSON valueForKey:@"errno"] intValue]==0&&JSON!=nil) {//请求成功
-                [self performSegueWithIdentifier:@"sdktest" sender:self];
-            }else if(JSON==nil){
-                [SVProgressHUD showErrorWithStatus:@"网络错误"];
-            }else{
-                [SVProgressHUD showErrorWithStatus:[JSON valueForKey:@"error"]];
-            }
-        });
-    });
 }
 
 

@@ -28,15 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
-    
-    NSDictionary *result=[[SDK share] sentDataReqestKey:@"b77a30acf8368345c72c55172fbb352f" andDeviceId:@"143217" andParam:@"123"];
-    NSLog(@"result==%@",result);
-
-//     Do any additional setup after loading the view.
-//     userLoginMsg=[[NSDictionary alloc]initWithContentsOfFile:[SDK saveSandbox:@"userLoginMsg"]];
-//    requestKey=[[userLoginMsg valueForKey:@"data"] valueForKey:@"api_key"];
 }
+
 
 #pragma mark  设备相关方法-------------
 -(IBAction)deviceAction:(UIButton *)btn{
@@ -107,6 +100,29 @@
      [self performSegueWithIdentifier:@"sdkresult" sender:self];
 }
 
+
+#pragma mark 数据点 相关方法
+
+-(IBAction)dataPointAction:(UIButton *)btn{
+    switch (btn.tag) {
+        case 1:{//上报数据
+            dict=[[SDK share]reportDataPointRequestKey:@"<填入登录时获取的APIKey>"  andDeviceId:@"<当前设备对应的设备ID>" andParam:@"{}"];
+        }
+            break;
+        case 2:{//读取数据
+            dict=[[SDK share] readDataPointRequestKey:@"<填入登录时获取的APIKey>" andDeviceId:@"<当前设备对应的设备ID>" andParam:@"{}"];
+        }
+            break;
+        case 3:{//删除数据
+            dict=[[SDK share]deleteDataPointRequestKey:@"<填入登录时获取的APIKey>" andDeviceId:@"<当前设备对应的设备ID>" andParam:@"{}"];
+        }
+        default:
+            break;
+    }
+    [self performSegueWithIdentifier:@"sdkresult" sender:self];
+}
+
+
 #pragma mark 触发器相关方法 ------------
 -(IBAction)triggerAction:(UIButton *)btn{
    
@@ -124,7 +140,14 @@
             dict=[[SDK share]deleteTriggerRequestKey:@"<填入登录时获取的APIKey>" andTriggerId:@"<要删除触发器的ID>"];
         }
             break;
-        
+        case 4:{//读取触发器
+            dict=[[SDK share] readTriggerRequestKey:@"<填入登录时获取的APIKey>" andTriggerId:@"<要读取触发器的ID>"];
+        }
+            break;
+        case 5:{//批量读取触发器
+            dict=[[SDK share]readAllTriggerRequestKey:@"<填入登录时获取的APIKey>"];
+        }
+            break;
         default:
             break;
     }
@@ -146,7 +169,7 @@
             dict=[[SDK share]readAPIKeyRequestKey:@"<填入登录时获取的APIKey>" andParam:@"{}"];
         }
             break;
-            
+       
         default:
             break;
     }
@@ -174,6 +197,24 @@
     }
     [self performSegueWithIdentifier:@"sdkresult" sender:self];
 }
+
+-(IBAction)otherAction:(UIButton *)btn{
+    switch (btn.tag) {
+        case 1:{//RestAPI 日志查询
+            dict=[[SDK share]queryLogRequestKey:@"<填入登录时获取的APIKey>" andDeviceId:@"<当前设备对应的设备ID>"];
+        }
+            break;
+        case 2:{//历史数据查询
+            dict=[[SDK share] queryDataRequestKey:@"<填入登录时获取的APIKey>"  andParam:@"{}"];
+        }
+            break;
+        default:
+            break;
+    }
+    [self performSegueWithIdentifier:@"sdkresult" sender:self];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
