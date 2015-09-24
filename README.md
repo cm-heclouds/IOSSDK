@@ -4,7 +4,7 @@
 
 ## 屏幕截图 ##
 
-![screenshot2](/img/4.png)
+![screenshot2](/img/2.png)
 ![screenshot3](/img/3.png)
 
 ## 说明 ##
