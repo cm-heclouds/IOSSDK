@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>ONDeviceAPI Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">OneNETSDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">chinamobile</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/addDeviceWithInfo:callBack:">+ addDeviceWithInfo:callBack:</option>
+		
+		<option value="//api/name/deleteDeviceWithDeviceId:callBack:">+ deleteDeviceWithDeviceId:callBack:</option>
+		
+		<option value="//api/name/editDeviceWithDeviceId:deviceInfo:callBack:">+ editDeviceWithDeviceId:deviceInfo:callBack:</option>
+		
+		<option value="//api/name/fuzzyQueryDevicesWithParam:callBack:">+ fuzzyQueryDevicesWithParam:callBack:</option>
+		
+		<option value="//api/name/querySingleDeviceWithDeviceId:callBack:">+ querySingleDeviceWithDeviceId:callBack:</option>
+		
+		<option value="//api/name/registerDeviceWithRegistCode:deviceInfo:callBack:">+ registerDeviceWithRegistCode:deviceInfo:callBack:</option>
+		
+	</optgroup>
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">ONDeviceAPI Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>ONDeviceAPI.h<br />ONDeviceAPI.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>设备API 详情链接<a href="http://open.iot.10086.cn/doc/art262.html">http://open.iot.10086.cn/doc/art262.html</a>#68</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/registerDeviceWithRegistCode:deviceInfo:callBack:" title="registerDeviceWithRegistCode:deviceInfo:callBack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerDeviceWithRegistCode:deviceInfo:callBack:">+&nbsp;registerDeviceWithRegistCode:deviceInfo:callBack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>注册设备</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerDeviceWithRegistCode:(NSString *)<em>registCode</em> deviceInfo:(NSString *)<em>deviceInfo</em> callBack:(OneNETCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>registCode</code></th>
+						<td><p>设备注册码（必填）</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>deviceInfo</code></th>
+						<td><p>json字符串</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ONDeviceAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addDeviceWithInfo:callBack:" title="addDeviceWithInfo:callBack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addDeviceWithInfo:callBack:">+&nbsp;addDeviceWithInfo:callBack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>新增设备</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)addDeviceWithInfo:(NSString *)<em>deviceInfo</em> callBack:(OneNETCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>deviceInfo</code></th>
+						<td><p>设备信息</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ONDeviceAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/editDeviceWithDeviceId:deviceInfo:callBack:" title="editDeviceWithDeviceId:deviceInfo:callBack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/editDeviceWithDeviceId:deviceInfo:callBack:">+&nbsp;editDeviceWithDeviceId:deviceInfo:callBack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>更新设备信息</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)editDeviceWithDeviceId:(NSString *)<em>deviceId</em> deviceInfo:(NSString *)<em>deviceInfo</em> callBack:(OneNETCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>deviceId</code></th>
+						<td><p>设备id</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>deviceInfo</code></th>
+						<td><p>设备信息</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ONDeviceAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/querySingleDeviceWithDeviceId:callBack:" title="querySingleDeviceWithDeviceId:callBack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/querySingleDeviceWithDeviceId:callBack:">+&nbsp;querySingleDeviceWithDeviceId:callBack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>精确查询单个设备</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)querySingleDeviceWithDeviceId:(NSString *)<em>deviceId</em> callBack:(OneNETCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>deviceId</code></th>
+						<td><p>设备id</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ONDeviceAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/fuzzyQueryDevicesWithParam:callBack:" title="fuzzyQueryDevicesWithParam:callBack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/fuzzyQueryDevicesWithParam:callBack:">+&nbsp;fuzzyQueryDevicesWithParam:callBack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>模糊查询设备</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)fuzzyQueryDevicesWithParam:(NSDictionary *)<em>param</em> callBack:(OneNETCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>param</code></th>
+						<td><p>查询条件</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ONDeviceAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteDeviceWithDeviceId:callBack:" title="deleteDeviceWithDeviceId:callBack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteDeviceWithDeviceId:callBack:">+&nbsp;deleteDeviceWithDeviceId:callBack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>删除设备</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)deleteDeviceWithDeviceId:(NSString *)<em>deviceId</em> callBack:(OneNETCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>deviceId</code></th>
+						<td><p>设备id</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ONDeviceAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2017 chinamobile. All rights reserved. Updated: 2017-05-03</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
