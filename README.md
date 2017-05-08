@@ -21,7 +21,7 @@ pod 'OneNETSDK', '~> 2.0.0'
 
 ![](screenshots/10.png)
 
-##初始化
+## 初始化
 
 ```
 [OneNETSDK setAPIKey:"apikey"];
